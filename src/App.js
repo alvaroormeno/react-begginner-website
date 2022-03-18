@@ -9,9 +9,9 @@ function App() {
     <>
     <BrowserRouter>
         <Navbar></Navbar>
-      <Switch>
+      <Routes>
         <Route path='/' exact></Route>
-      </Switch>
+      </Routes>
     </BrowserRouter>
    
     </>
