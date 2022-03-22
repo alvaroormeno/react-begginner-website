@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import './Navbar.css'
 import {Button} from './Button.js';
@@ -23,6 +23,11 @@ function Navbar() {
         }
     };
 
+    // PREVENTS SIGN UP BUTTON FROM SHOWIN ON MOVBILE NAVBAR AFTER RELOADING
+    useEffect( () => {
+        showButton();
+    }, []);
+
     window.addEventListener('resize', showButton)
 
 
@@ -31,7 +36,7 @@ function Navbar() {
     <nav className='navbar'>
         <div className='navbar-container'>
 
-            <Link to="/" className="navbar-logo" >
+            <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
                 TRAVEL <i className="fab fa-typo3"></i>
             </Link>
             <div className="menu-icon" onClick={handleClick} >
